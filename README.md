@@ -295,6 +295,3 @@ s2
 50 WY   582658   17   17    9    9    26    17  0
 >
 ```
-### Initial Results - Part 1
-
-```Rout
