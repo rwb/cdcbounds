@@ -130,7 +130,7 @@ s0
 >
 ```
 
-### R code - part 3 - bounds based on broad set of unknown external causes
+### R code - part 3 - bounds based on broad set of unknown external causes (including poison cases)
 
 ```R
 lbh13 <- h13
