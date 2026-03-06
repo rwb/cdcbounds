@@ -323,7 +323,7 @@ s2
 
 ### Notes
 
-* Estimand: p(a state drawn at random experienced an increase in its homicide rate from 2014 to 2015) = pi
+* Estimand: p(a state drawn at random experienced an increase in its homicide rate from 2013 to 2015) = pi
 * Estimator: # of states that increased divided by the total number of states (N = 50)
 * 95% confidence interval using Clopper-Pearson (exact) procedure
 * version 1: take homicide numbers as a given -- est(pi) = 39/50 = 0.78; 95%CI = [0.640,0.885].
