@@ -109,25 +109,27 @@ data.frame(st,p13,h13,h15,ub13,ub15,un13,un15)
 s0 <- ifelse(h15>h13,1,0)
 table(s0)
 mean(s0)
-dist.pincrease <- rbeta(n=1e7,shape1=1/2+39,shape2=1/2+50-39)
-quantile(dist.pincrease,c(0.025,0.975))
+qbeta(0.025,shape1=39,shape2=50-39+1)
+qbeta(0.975,shape1=39+1,shape2=50-39)
 ```
 
 * Here is the output:
 
 ```Rout
- s0 <- ifelse(h15>h13,1,0)
+> # analysis 1: studying only the homicide counts for each state in 2013 and 2015
+> 
+> s0 <- ifelse(h15>h13,1,0)
 > table(s0)
 s0
  0  1 
 11 39 
 > mean(s0)
 [1] 0.78
-> dist.pincrease <- rbeta(n=1e7,shape1=1/2+39,shape2=1/2+50-39)
-> quantile(dist.pincrease,c(0.025,0.975))
-    2.5%    97.5% 
-0.651594 0.876997 
->
+> qbeta(0.025,shape1=39,shape2=50-39+1)
+[1] 0.6403881
+> qbeta(0.975,shape1=39+1,shape2=50-39)
+[1] 0.8847342
+> 
 ```
 
 ### R code - part 3 - bounds based on broad set of unknown external causes (including poison cases)
@@ -140,24 +142,42 @@ ubh15 <- h15+ub15
 s1 <- ifelse(lbh15>ubh13,1,0)
 table(s1)
 mean(s1)
-dist.pincrease <- rbeta(n=1e7,shape1=1/2+7,shape2=1/2+50-7)
-quantile(dist.pincrease,c(0.025,0.975))
+qbeta(0.025,shape1=7,shape2=50-7+1)
+qbeta(0.975,shape1=7+1,shape2=50-7)
 data.frame(st,p13,h13,h15,ub13,ub15,ubh13,lbh15,s1)
 ```
 
 * Here is the output:
 
 ```Rout
+> lbh13 <- h13
+> ubh13 <- h13+ub13
+> lbh15 <- h15
+> ubh15 <- h15+ub15
+> s1 <- ifelse(lbh15>ubh13,1,0)
 > table(s1)
 s1
  0  1 
 43  7 
 > mean(s1)
 [1] 0.14
-> dist.pincrease <- rbeta(n=1e7,shape1=1/2+7,shape2=1/2+50-7)
-> quantile(dist.pincrease,c(0.025,0.975))
-      2.5%      97.5% 
-0.06486176 0.25537933 
+> 
+> 
+> lbh13 <- h13
+> ubh13 <- h13+ub13
+> lbh15 <- h15
+> ubh15 <- h15+ub15
+> s1 <- ifelse(lbh15>ubh13,1,0)
+> table(s1)
+s1
+ 0  1 
+43  7 
+> mean(s1)
+[1] 0.14
+> qbeta(0.025,shape1=7,shape2=50-7+1)
+[1] 0.0581917
+> qbeta(0.975,shape1=7+1,shape2=50-7)
+[1] 0.267396
 > data.frame(st,p13,h13,h15,ub13,ub15,ubh13,lbh15,s1)
    st      p13  h13  h15 ub13 ub15 ubh13 lbh15 s1
 1  AL  4833722  417  473   67   81   484   473  0
@@ -210,7 +230,7 @@ s1
 48 WV  1854304   74   80   52   78   126    80  0
 49 WI  5742713  176  243   66   65   242   243  1
 50 WY   582658   17   17   11    9    28    17  0
->
+> 
 ```
 
 ### R code - part 4 - bounds based on narrow set of unknown external causes (excluding poison cases)
@@ -223,24 +243,29 @@ ubh15 <- h15+un15
 s2 <- ifelse(lbh15>ubh13,1,0)
 table(s2)
 mean(s2)
-dist.pincrease <- rbeta(n=1e7,shape1=1/2+21,shape2=1/2+50-21)
-quantile(dist.pincrease,c(0.025,0.975))
+qbeta(0.025,shape1=21,shape2=50-21+1)
+qbeta(0.975,shape1=21+1,shape2=50-21)
 data.frame(st,p13,h13,h15,un13,un15,ubh13,lbh15,s2)
 ```
 
 * Here is the output:
 
 ```Rout
+> lbh13 <- h13
+> ubh13 <- h13+un13
+> lbh15 <- h15
+> ubh15 <- h15+un15
+> s2 <- ifelse(lbh15>ubh13,1,0)
 > table(s2)
 s2
  0  1 
 29 21 
 > mean(s2)
 [1] 0.42
-> dist.pincrease <- rbeta(n=1e7,shape1=1/2+21,shape2=1/2+50-21)
-> quantile(dist.pincrease,c(0.025,0.975))
-     2.5%     97.5% 
-0.2908485 0.5581218 
+> qbeta(0.025,shape1=21,shape2=50-21+1)
+[1] 0.2818822
+> qbeta(0.975,shape1=21+1,shape2=50-21)
+[1] 0.5679396
 > data.frame(st,p13,h13,h15,un13,un15,ubh13,lbh15,s2)
    st      p13  h13  h15 un13 un15 ubh13 lbh15 s2
 1  AL  4833722  417  473   31   37   448   473  1
@@ -293,5 +318,16 @@ s2
 48 WV  1854304   74   80   29   30   103    80  0
 49 WI  5742713  176  243   30   27   206   243  1
 50 WY   582658   17   17    9    9    26    17  0
->
+> 
 ```
+
+### Notes
+
+* Estimand: p(a state drawn at random experienced an increase in its homicide rate from 2014 to 2015) = pi
+* Estimator: # of states that increased divided by the total number of states (N = 50)
+* 95% confidence interval using Clopper-Pearson procedure (exact confidence interval)
+* version 1: take homicide numbers as a given -- est(pi) = 39/50 = 0.78; 95%CI = [0.640,0.885].
+* version 2: unknown causes considered (including poisonings) -- est(pi) = 7/50 = 0.14; 95%CI = [0.058,0.267]
+* version 3: unknown causes considered (excluding poisonings) -- est(pi) = 21/50 = 0.42; 95%CI = [0.282,0.568]
+* notably the confidence intervals for versions 1 and 2 both exclude 1/2 but in different directions.
+* the confidence interval for version 3 -- where we allow for unknown causes but exclude the poisoning cases -- includes 0.5.
