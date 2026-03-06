@@ -329,5 +329,13 @@ s2
 * version 1: take homicide numbers as a given -- est(pi) = 39/50 = 0.78; 95%CI = [0.640,0.885].
 * version 2: unknown causes considered (including poisonings) -- est(pi) = 7/50 = 0.14; 95%CI = [0.058,0.267]
 * version 3: unknown causes considered (excluding poisonings) -- est(pi) = 21/50 = 0.42; 95%CI = [0.282,0.568]
-* notably the confidence intervals for versions 1 and 2 both exclude 1/2 but in different directions.
-* the confidence interval for version 3 -- where we allow for unknown causes but exclude the poisoning cases -- includes 0.5.
+* notably the confidence intervals for versions 1 and 2 both exclude 1/2 but in different directions
+* the confidence interval for version 3 -- where we allow for unknown causes but exclude the poisoning cases -- includes 0.5
+* results so far are based on raw numbers of homicides in each state during 2013 and 2015
+* no adjustment for population size but we could add this
+* I have the estimated population for each state in 2013 already keyed in but I would need to key in the population size for 2015
+* not clear that we should adjust for population size because that adjustment would involve estimates of population size (it's not known with certainty)
+* a homicide rate trend could show a decline if the population size grew faster than the number of homicides
+* a homicide rate trend could show an increase if the population size shrank faster than the number of homicides
+* so if the number of homicides changes, the sign of the change in the rates could be different than the sign of the change in the numbers
+* further complicated by the fact that we are measuring homicides by place of residence, not place of occurrence
