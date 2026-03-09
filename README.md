@@ -325,12 +325,12 @@ s2
 
 * Estimand: p(a state drawn at random experienced an increase in its homicide rate from 2013 to 2015) = pi
 * Estimator: # of states that increased divided by the total number of states (N = 50)
-* 95% confidence interval using Clopper-Pearson (exact) procedure
-* version 1: take homicide numbers as a given -- est(pi) = 39/50 = 0.78; 95%CI = [0.640,0.885].
-* version 2: unknown causes considered (including poisonings) -- est(pi) = 7/50 = 0.14; 95%CI = [0.058,0.267]
-* version 3: unknown causes considered (excluding poisonings) -- est(pi) = 21/50 = 0.42; 95%CI = [0.282,0.568]
-* notably the confidence intervals for versions 1 and 2 both exclude 1/2 but in different directions
-* the confidence interval for version 3 -- where we allow for unknown causes but exclude the poisoning cases -- includes 0.5
+* Ho: pi = 0.5 (states are equally likely to increase or decrease from 2013 to 2015)
+* Ha: pi > 0.5 (most states will experience an increase from 2013 to 2015); one-tailed test
+* Critical value of est(pi) required to reject Ho: 0.614 (so est(pi)>0.614 means evidence is strong enough to reject Ho).
+* version 1: take homicide numbers as a given -- est(pi) = 39/50 = 0.78; reject Ho
+* version 2: unknown causes considered (including poisonings) -- est(pi) = 7/50 = 0.14; fail to reject Ho
+* version 3: unknown causes considered (excluding poisonings) -- est(pi) = 21/50 = 0.42; fail to reject Ho
 * results so far are based on raw numbers of homicides in each state during 2013 and 2015
 * no adjustment for population size but we could add this
 * I have the estimated population for each state in 2013 already keyed in but I would need to key in the population size for 2015
@@ -339,3 +339,4 @@ s2
 * a homicide rate trend could show an increase if the population size shrank faster than the number of homicides
 * so if the number of homicides changes, the sign of the change in the rates could be different than the sign of the change in the numbers
 * further complicated by the fact that we are measuring homicides by place of residence, not place of occurrence
+* there is also the question of what to do with 2014 given FBI director Comey's comments in October 2014.
