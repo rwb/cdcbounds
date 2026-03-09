@@ -120,11 +120,10 @@ data.frame(st,p13,p14,p15,h13,h14,h15,ub13,ub14,ub15,un13,un14,un15)
 ```R
 # analysis 1: studying only the homicide counts for each state in 2013 and 2015
 
-s0 <- ifelse(h15>h13,1,0)
-table(s0)
-mean(s0)
-qbeta(0.025,shape1=39,shape2=50-39+1)
-qbeta(0.975,shape1=39+1,shape2=50-39)
+table(ifelse(h15>h13,1,0))
+mean(ifelse(h15>h13,1,0))
+p <- qbeta(0.95,shape1=1/2+25,shape2=1/2+50-25)
+quantile(p,0.95)
 ```
 
 * Here is the output:
@@ -132,17 +131,16 @@ qbeta(0.975,shape1=39+1,shape2=50-39)
 ```Rout
 > # analysis 1: studying only the homicide counts for each state in 2013 and 2015
 > 
-> s0 <- ifelse(h15>h13,1,0)
-> table(s0)
-s0
+> table(ifelse(h15>h13,1,0))
+
  0  1 
 11 39 
-> mean(s0)
+> mean(ifelse(h15>h13,1,0))
 [1] 0.78
-> qbeta(0.025,shape1=39,shape2=50-39+1)
-[1] 0.6403881
-> qbeta(0.975,shape1=39+1,shape2=50-39)
-[1] 0.8847342
+> p <- qbeta(0.95,shape1=1/2+25,shape2=1/2+50-25)
+> quantile(p,0.95)
+      95% 
+0.6141934 
 > 
 ```
 
@@ -156,8 +154,6 @@ ubh15 <- h15+ub15
 s1 <- ifelse(lbh15>ubh13,1,0)
 table(s1)
 mean(s1)
-qbeta(0.025,shape1=7,shape2=50-7+1)
-qbeta(0.975,shape1=7+1,shape2=50-7)
 data.frame(st,p13,h13,h15,ub13,ub15,ubh13,lbh15,s1)
 ```
 
@@ -188,10 +184,6 @@ s1
 43  7 
 > mean(s1)
 [1] 0.14
-> qbeta(0.025,shape1=7,shape2=50-7+1)
-[1] 0.0581917
-> qbeta(0.975,shape1=7+1,shape2=50-7)
-[1] 0.267396
 > data.frame(st,p13,h13,h15,ub13,ub15,ubh13,lbh15,s1)
    st      p13  h13  h15 ub13 ub15 ubh13 lbh15 s1
 1  AL  4833722  417  473   67   81   484   473  0
@@ -257,8 +249,6 @@ ubh15 <- h15+un15
 s2 <- ifelse(lbh15>ubh13,1,0)
 table(s2)
 mean(s2)
-qbeta(0.025,shape1=21,shape2=50-21+1)
-qbeta(0.975,shape1=21+1,shape2=50-21)
 data.frame(st,p13,h13,h15,un13,un15,ubh13,lbh15,s2)
 ```
 
@@ -276,10 +266,6 @@ s2
 29 21 
 > mean(s2)
 [1] 0.42
-> qbeta(0.025,shape1=21,shape2=50-21+1)
-[1] 0.2818822
-> qbeta(0.975,shape1=21+1,shape2=50-21)
-[1] 0.5679396
 > data.frame(st,p13,h13,h15,un13,un15,ubh13,lbh15,s2)
    st      p13  h13  h15 un13 un15 ubh13 lbh15 s2
 1  AL  4833722  417  473   31   37   448   473  1
