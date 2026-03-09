@@ -122,8 +122,11 @@ data.frame(st,p13,p14,p15,h13,h14,h15,ub13,ub14,ub15,un13,un14,un15)
 
 table(ifelse(h15>h13,1,0))
 mean(ifelse(h15>h13,1,0))
-p <- qbeta(0.95,shape1=1/2+25,shape2=1/2+50-25)
-quantile(p,0.95)
+
+# calculate critical value of p
+
+qbinom(p=0.95,size=50,prob=0.5)
+31/50
 ```
 
 * Here is the output:
@@ -137,10 +140,13 @@ quantile(p,0.95)
 11 39 
 > mean(ifelse(h15>h13,1,0))
 [1] 0.78
-> p <- qbeta(0.95,shape1=1/2+25,shape2=1/2+50-25)
-> quantile(p,0.95)
-      95% 
-0.6141934 
+> 
+> # calculate critical value of p
+> 
+> qbinom(p=0.95,size=50,prob=0.5)
+[1] 31
+> 31/50
+[1] 0.62
 > 
 ```
 
@@ -171,7 +177,6 @@ s1
 43  7 
 > mean(s1)
 [1] 0.14
-> 
 > 
 > lbh13 <- h13
 > ubh13 <- h13+ub13
@@ -327,7 +332,7 @@ s2
 * Estimator: # of states that increased divided by the total number of states (N = 50)
 * Ho: pi = 0.5 (states are equally likely to increase or decrease from 2013 to 2015)
 * Ha: pi > 0.5 (most states will experience an increase from 2013 to 2015); one-tailed test
-* Critical value of est(pi) required to reject Ho: 0.614 (so est(pi)>0.614 means evidence is strong enough to reject Ho).
+* Critical value of est(pi) required to reject Ho: 31 increases or est(pi) > 0.614 (so est(pi)>0.614 means evidence is strong enough to reject Ho).
 * version 1: take homicide numbers as a given -- est(pi) = 39/50 = 0.78; reject Ho
 * version 2: unknown causes considered (including poisonings) -- est(pi) = 7/50 = 0.14; fail to reject Ho
 * version 3: unknown causes considered (excluding poisonings) -- est(pi) = 21/50 = 0.42; fail to reject Ho
