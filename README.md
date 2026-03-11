@@ -368,4 +368,4 @@ s2a
 * a homicide rate trend could show an increase if the population size shrank faster than the number of homicides
 * so if the number of homicides changes, the sign of the change in the rates could be different than the sign of the change in the numbers
 * further complicated by the fact that we are measuring homicides by place of residence, not place of occurrence
-* there is also the question of what to do with 2014 given FBI director Comey's comments in October 2014.
+* there is also the question of what to do with 2014 given FBI director Comey's comments in October 2015.
