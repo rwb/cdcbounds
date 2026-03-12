@@ -60,7 +60,22 @@ iwt <- wt/sum(wt)
 
 # print out the dataset
 
-data.frame(st,p13,p14,p15,h13,h14,h15,ub13,ub14,ub15,un13,un14,un15,wt,iwt)
+d <- data.frame(st,p13,p14,p15,h13,h14,h15,ub13,ub14,ub15,un13,un14,un15,wt,iwt)
+d
+
+# weighted bootstrap
+
+pvec <- vector()
+
+for(i in 1:1000){
+  b <- sample(1:50,size=50,replace=T,prob=iwt)
+  h13b <- h13[b]
+  h15b <- h15[b]
+  pvec[i] <- mean(ifelse(h15b>h13b,1,0))
+  }
+
+quantile(pvec,c(0.025,0.975))
+
 ```
 
 * Here is the output:
