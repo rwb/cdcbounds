@@ -560,5 +560,6 @@ y3 0.397 0.258 0.550
 
 | Estimand | Point Estimate of p | 95% Confidence Interval for p | Weighted/Unweighted |
 |:---------|--------------------:|------------------------------:|:-------------------:|
-| p(a state's number of homicides increases from 2013 to 2015) | 39/50 = 0.78 |  [0.6403881,0.8847342] | U |
-|
+| p based on homicide counts | 39/50 = 0.78 | [0.6403881,0.8847342] | U |
+| including *broad* set of unknown cases | 7/50 = 0.14 | [0.0581917,0.2673960] | U |
+| including *narrow* set of unknown cases | 21/50 = 0.42 | [0.2818822,0.5679396] | U |
