@@ -560,6 +560,24 @@ y3 0.397 0.258 0.550
 
 | Estimand | Point Estimate of p | 95% Confidence Interval for p | Weighted/Unweighted |
 |:---------|--------------------:|------------------------------:|:-------------------:|
-| p based on homicide counts | 39/50 = 0.78 | [0.6403881,0.8847342] | U |
-| including *broad* set of unknown cases | 7/50 = 0.14 | [0.0581917,0.2673960] | U |
-| including *narrow* set of unknown cases | 21/50 = 0.42 | [0.2818822,0.5679396] | U |
+| p based on homicide counts | 39/50 = 0.78 | [0.640,0.885] | U |
+| including *broad* set of unknown cases | 7/50 = 0.14 | [0.058,0.267] | U |
+| including *narrow* set of unknown cases | 21/50 = 0.42 | [0.282,0.568] | U |
+| p based on homicide counts | 0.772 | [0.624,0.883] | W |
+| including *broad* set of unknown cases | 0.136 | [0.055,0.264] | W |
+| including *narrow* set of unknown cases | 0.422 | [0.280,0.574] | W |
+
+*Note*: p means the probability that a state drawn at random experienced an increase in its # of homicides from 2013 to 2015.
+
+### Summary Table Based on Homicide Rates (No Ties)
+
+| Estimand | Point Estimate of p | 95% Confidence Interval for p | Weighted/Unweighted |
+|:---------|--------------------:|------------------------------:|:-------------------:|
+| p based on homicide rates | 39/50 = 0.78 | [0.640,0.885] | U |
+| including *broad* set of unknown cases | 5/50 = 0.1 | [0.033,0.218] | U |
+| including *narrow* set of unknown cases | 20/50 = 0.4 | [0.264,0.548] | U |
+| p based on homicide rates | 0.772 | [0.624,0.883] | W |
+| including *broad* set of unknown cases | 0.091 | [0.029,0.203] | W |
+| including *narrow* set of unknown cases | 0.397 | [0.258,0.550] | W |
+
+*Note*: p means the probability that a state drawn at random (weighted for percent of population in urban areas) experienced an increase in its homicide rate from 2013 to 2015.
