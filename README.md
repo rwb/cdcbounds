@@ -61,9 +61,9 @@ d
 
 # confidence interval based on raw data
 
-binom.test(sum(y1),50,conf.level=0.9)
-binom.test(sum(y2),50,conf.level=0.9)
-binom.test(sum(y3),50,conf.level=0.9)
+binom.test(sum(y1),50,conf.level=0.95)
+binom.test(sum(y2),50,conf.level=0.95)
+binom.test(sum(y3),50,conf.level=0.95)
 
 
 # confidence interval based on weighted data
@@ -72,13 +72,13 @@ library(survey)
 s <- svydesign(ids=~1,data=d,weights=~uwt)
 
 svymean(~y1,design=s)
-svyciprop(~y1,design=s,method="beta",level=0.9)
+svyciprop(~y1,design=s,method="beta",level=0.95)
 
 svymean(~y2,design=s)
-svyciprop(~y2,design=s,method="beta",level=0.9)
+svyciprop(~y2,design=s,method="beta",level=0.95)
 
 svymean(~y3,design=s)
-svyciprop(~y3,design=s,method="beta",level=0.9)
+svyciprop(~y3,design=s,method="beta",level=0.95)
 ```
 
 ### Analysis Results
@@ -340,9 +340,9 @@ d
 
 # confidence interval based on raw data
 
-binom.test(sum(y1),50,conf.level=0.9)
-binom.test(sum(y2),50,conf.level=0.9)
-binom.test(sum(y3),50,conf.level=0.9)
+binom.test(sum(y1),50,conf.level=0.95)
+binom.test(sum(y2),50,conf.level=0.95)
+binom.test(sum(y3),50,conf.level=0.95)
 
 
 # confidence interval based on weighted data
@@ -351,10 +351,10 @@ library(survey)
 s <- svydesign(ids=~1,data=d,weights=~uwt)
 
 svymean(~y1,design=s)
-svyciprop(~y1,design=s,method="beta",level=0.9)
+svyciprop(~y1,design=s,method="beta",level=0.95)
 
 svymean(~y2,design=s)
-svyciprop(~y2,design=s,method="beta",level=0.9)
+svyciprop(~y2,design=s,method="beta",level=0.95)
 
 svymean(~y3,design=s)
-svyciprop(~y3,design=s,method="beta",level=0.9)
+svyciprop(~y3,design=s,method="beta",level=0.95)
