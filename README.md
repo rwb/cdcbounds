@@ -554,3 +554,9 @@ y3 0.3972 0.071
           2.5% 97.5%
 y3 0.397 0.258 0.550
 > 
+
+### Summary Table Based on Raw Homicide Counts
+
+| Estimand | Point Estimate of p | 95% Confidence Interval for p |
+|:---------|--------------------:|------------------------------:|
+| p(a state's number of homicides increases from 2013 to 2015) | 39/50 = 0.78 |  [0.6403881,0.8847342] |
