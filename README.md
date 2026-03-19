@@ -553,7 +553,8 @@ y3 0.3972 0.071
 > svyciprop(~y3,design=s,method="beta",level=0.95)
           2.5% 97.5%
 y3 0.397 0.258 0.550
-> 
+>
+```
 
 ### Summary Table Based on Raw Homicide Counts
 
