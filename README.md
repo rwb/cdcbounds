@@ -50,9 +50,9 @@ uwt <- wt/sum(wt)
 
 # state murders increased from 2013 to 2015 (1=yes,0=no)
 
-y1 <- ifelse((h15/p15)>(h13/p13),1,0)
-y2 <- ifelse((h15/p15)>((h13+ub13)/p13),1,0)
-y3 <- ifelse((h15/p15)>((h13+un13)/p13),1,0)
+y1 <- ifelse(h15>h13,1,0)
+y2 <- ifelse(h15>(h13+ub13),1,0)
+y3 <- ifelse(h15>(h13+un13),1,0)
 
 # print out the dataset
 
@@ -329,9 +329,9 @@ uwt <- wt/sum(wt)
 
 # state murders increased from 2013 to 2015 (1=yes,0=no)
 
-y1 <- ifelse(h15>h13,1,0)
-y2 <- ifelse(h15>(h13+ub13),1,0)
-y3 <- ifelse(h15>(h13+un13),1,0)
+y1 <- ifelse((h15/p15)>(h13/p13),1,0)
+y2 <- ifelse((h15/p15)>((h13+ub13)/p13),1,0)
+y3 <- ifelse((h15/p15)>((h13+un13)/p13),1,0)
 
 # print out the dataset
 
