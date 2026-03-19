@@ -195,41 +195,41 @@ svyciprop(~y3,design=s,method="beta",level=0.95)
 > 
 > # confidence interval based on raw data
 > 
-> binom.test(sum(y1),50,conf.level=0.9)
+> binom.test(sum(y1),50,conf.level=0.95)
 
 	Exact binomial test
 
 data:  sum(y1) and 50
 number of successes = 39, number of trials = 50, p-value = 9.021e-05
 alternative hypothesis: true probability of success is not equal to 0.5
-90 percent confidence interval:
- 0.6622255 0.8714426
+95 percent confidence interval:
+ 0.6403881 0.8847342
 sample estimates:
 probability of success 
                   0.78 
 
-> binom.test(sum(y2),50,conf.level=0.9)
+> binom.test(sum(y2),50,conf.level=0.95)
 
 	Exact binomial test
 
 data:  sum(y2) and 50
 number of successes = 7, number of trials = 50, p-value = 2.099e-07
 alternative hypothesis: true probability of success is not equal to 0.5
-90 percent confidence interval:
- 0.0675967 0.2469352
+95 percent confidence interval:
+ 0.0581917 0.2673960
 sample estimates:
 probability of success 
                   0.14 
 
-> binom.test(sum(y3),50,conf.level=0.9)
+> binom.test(sum(y3),50,conf.level=0.95)
 
 	Exact binomial test
 
 data:  sum(y3) and 50
 number of successes = 21, number of trials = 50, p-value = 0.3222
 alternative hypothesis: true probability of success is not equal to 0.5
-90 percent confidence interval:
- 0.3013844 0.5460108
+95 percent confidence interval:
+ 0.2818822 0.5679396
 sample estimates:
 probability of success 
                   0.42 
@@ -257,24 +257,24 @@ Warning messages:
 > svymean(~y1,design=s)
       mean    SE
 y1 0.77201 0.062
-> svyciprop(~y1,design=s,method="beta",level=0.9)
-            5%   95%
-y1 0.772 0.647 0.869
+> svyciprop(~y1,design=s,method="beta",level=0.95)
+          2.5% 97.5%
+y1 0.772 0.624 0.883
 > 
 > svymean(~y2,design=s)
       mean     SE
 y2 0.13559 0.0489
-> svyciprop(~y2,design=s,method="beta",level=0.9)
-              5%    95%
-y2 0.1356 0.0639 0.2430
+> svyciprop(~y2,design=s,method="beta",level=0.95)
+            2.5%  97.5%
+y2 0.1356 0.0547 0.2635
 > 
 > svymean(~y3,design=s)
       mean     SE
 y3 0.42199 0.0718
-> svyciprop(~y3,design=s,method="beta",level=0.9)
-            5%   95%
-y3 0.422 0.300 0.552
->
+> svyciprop(~y3,design=s,method="beta",level=0.95)
+          2.5% 97.5%
+y3 0.422 0.280 0.574
+> 
 ```
 
 ### R Code for Rates
